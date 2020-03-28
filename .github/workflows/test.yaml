@@ -11,12 +11,16 @@ jobs:
       with:
         python-version: 3.8
     - uses: dschep/install-poetry-action@v1.3
+      with:
+        create_virtualenvs: true
     - name: Cache Poetry virtualenv
       id: cache
       uses: actions/cache@v1
+      env:
+        cache-name: cache-virtualenv-v1
       with:
         path: ~/.virtualenvs
-        key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/poetry.lock') }}
     - name: Set Poetry config
       run: |
         poetry config virtualenvs.in-project false
