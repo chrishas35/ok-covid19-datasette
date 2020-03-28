@@ -8,6 +8,9 @@ authors = ["Chris Hasenpflug <chris@hasenpflug.net>"]
 python = "^3.8"
 tika = "^1.24"
 scrapy = "^2.0.1"
+python-dateutil = "^2.8.1"
+datasette = "^0.39"
+sqlite_utils = "^2.4.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.4.1"

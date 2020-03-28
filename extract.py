@@ -2,6 +2,8 @@ import logging
 import re
 from glob import glob
 
+import sqlite_utils
+from dateutil.parser import parse
 from tika import parser
 
 REGEX_INTEGER_WITH_COMMAS = r"\d{1,3}(?:,\d{3})*"
@@ -15,8 +17,17 @@ def main():
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
+    # TODO: Refactor Extact routines into their own script and have bulid_database.py import them
+    db = sqlite_utils.Database("covid-oklahoma.db")
+    table = db["osdh_eo_reports"]
+    if table.exists():
+        table.drop()
+    table.insert_all(load_daily_reports(), pk="date")
+
+
+def load_daily_reports():
     for pdf in glob("data/pdfs/*covid-19_report*.pdf"):
-        extract_stats(pdf)
+        yield extract_stats(pdf)
 
 
 def int_or_none(val):
@@ -40,6 +51,63 @@ def float_or_none(val):
 def extract_stats(pdf):
     logging.info(f"Extracting stats from {pdf}...")
     raw = parser.from_file(pdf)
+    contents = raw["content"]
+
+    document = dict()
+    document["date"] = parse(extract_c19_report_date(contents)).strftime("%Y-%m-%d")
+    document[
+        "hospital_reporting_compliance"
+    ] = extract_c19_hospital_reporting_compliance(contents)
+    (
+        document["icu_beds_numerator"],
+        document["icu_beds_denominator"],
+        document["icu_beds_percentage"],
+    ) = extract_c19_icu_beds(contents)
+    (
+        document["medical_surgery_beds_numerator"],
+        document["medical_surgery_beds_denominator"],
+        document["medical_surgery_beds_percentage"],
+    ) = extract_c19_med_surg_beds(contents)
+    (
+        document["operating_room_beds_numerator"],
+        document["operating_room_beds_denominator"],
+        document["operating_room_beds_percentage"],
+    ) = extract_c19_or_beds(contents)
+    (
+        document["pediatric_beds_numerator"],
+        document["pediatric_beds_denominator"],
+        document["pediatric_beds_percentage"],
+    ) = extract_c19_peds_beds(contents)
+    (
+        document["picu_beds_numerator"],
+        document["picu_beds_denominator"],
+        document["picu_beds_percentage"],
+    ) = extract_c19_picu_beds(contents)
+    document["ventilators"] = extract_c19_ventilators(contents)
+    (
+        document["negative_flow_rooms_numerator"],
+        document["negative_flow_rooms_denominator"],
+        document["negative_flow_rooms_percentage"],
+    ) = extract_c19_neg_flow_rooms(contents)
+    document["overall_hospital_occupancy_status"] = extract_c19_occupancy(contents)
+    document["positive_patients_all"] = extract_c19_positives(contents)
+    document["positive_patients_hospitalized"] = extract_c19_positives_hospitalized(
+        contents
+    )
+    document["positive_patients_in_icu"] = extract_c19_positives_icu(contents)
+
+    document["persons_under_investigation_in_hospital"] = extract_c19_pui_hospital(
+        contents
+    )
+    document["persons_under_investigation_in_icu"] = extract_c19_pui_icu(contents)
+    document["persons_in_self_quarantine"] = extract_c19_self_quarantine(contents)
+
+    document["positive_cases_by_lab_osdh"] = extract_c19_positives_osdh_lab(contents)
+    document["positive_cases_by_lab_dlo"] = extract_c19_positives_dlo(contents)
+    document["positive_cases_by_lab_other"] = extract_c19_positives_other_labs(contents)
+
+    return document
+
     # Contents to File
     # filename = pdf.split('/')[-1]
     # filename = filename.replace(".pdf", ".txt")

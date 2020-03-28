@@ -3,6 +3,9 @@ on:
   repository_dispatch:
   schedule:
     - cron:  '17 */1 * * *'
+  push:
+    branches:
+      - 'master'
 
 jobs:
   fetch:
@@ -14,10 +17,10 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    # - uses: actions/setup-java@v1
-    #   with:
-    #     java-version: '11' # The JDK version to make available on the path.
-    #     java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '11' # The JDK version to make available on the path.
+        java-package: jre # (jre, jdk, or jdk+fx) - defaults to jdk
     - uses: dschep/install-poetry-action@v1.3
       with:
         create_virtualenvs: true
@@ -39,7 +42,11 @@ jobs:
     - name: Fetch documents
       run: poetry run scrapy runspider fetch_documents.py
     - uses: stefanzweifel/git-auto-commit-action@v4.1.1
+      id: commit
       with:
         commit_message: Update documents via Github Action
         # branch: ${{ github.head_ref }}
         file_pattern: "data/pdfs/*.pdf"
+    - name: Extract contents
+      run: poetry run python extract.py
+      if: github.event_name != 'schedule' || (github.event_name == 'schedule' && steps.commit.outputs.changes_detected == 'true')
