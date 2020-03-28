@@ -1,5 +1,8 @@
 name: Fetch files and Extract data
-on: [push]
+on:
+  repository_dispatch:
+  schedule:
+    - cron:  '17 */1 * * *'
 
 jobs:
   fetch:
