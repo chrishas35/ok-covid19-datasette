@@ -30,4 +30,4 @@ jobs:
       run: poetry install
       if: steps.cache.outputs.cache-hit != 'true'
     - name: Test with pytest
-      run: python -m pytest test_extract.py
+      run: poetry run pytest test_extract.py
