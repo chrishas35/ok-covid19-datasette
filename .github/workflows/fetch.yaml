@@ -49,4 +49,5 @@ jobs:
         file_pattern: "data/pdfs/*.pdf"
     - name: Extract contents
       run: poetry run python extract.py
+      #TODO: Can we also do only if we modified certain .py/meta/template files?
       if: github.event_name != 'schedule' || (github.event_name == 'schedule' && steps.commit.outputs.changes_detected == 'true')
