@@ -18,16 +18,27 @@ def main():
     )
 
     # TODO: Refactor Extact routines into their own script and have bulid_database.py import them
-    db = sqlite_utils.Database("covid-oklahoma.db")
-    table = db["osdh_eo_reports"]
+    db = sqlite_utils.Database("ok-covid19.db")
+    table = db["occupancy_stats"]
     if table.exists():
         table.drop()
-    table.insert_all(load_daily_reports(), pk="date")
+    table.insert_all(load_occupancy_stats(), pk="date")
+
+    # TODO: Add the non-EO stats to give history and upsert
+    table = db["case_stats"]
+    if table.exists():
+        table.drop()
+    table.insert_all(load_case_stats(), pk="date")
 
 
-def load_daily_reports():
+def load_occupancy_stats():
     for pdf in glob("data/pdfs/*covid-19_report*.pdf"):
-        yield extract_stats(pdf)
+        yield extract_occupancy_stats(pdf)
+
+
+def load_case_stats():
+    for pdf in glob("data/pdfs/*covid-19_report*.pdf"):
+        yield extract_case_stats(pdf)
 
 
 def int_or_none(val):
@@ -48,10 +59,22 @@ def float_or_none(val):
     return None
 
 
-def extract_stats(pdf):
-    logging.info(f"Extracting stats from {pdf}...")
-    raw = parser.from_file(pdf)
-    contents = raw["content"]
+_content_cache = {}
+
+
+def get_contents(pdf):
+    global _content_cache
+
+    if pdf not in _content_cache:
+        logging.info(f"Parsing {pdf}")
+        raw = parser.from_file(pdf)
+        _content_cache[pdf] = raw["content"]
+    return _content_cache[pdf]
+
+
+def extract_occupancy_stats(pdf):
+    logging.info(f"Extracting occupancy stats from {pdf}...")
+    contents = get_contents(pdf)
 
     document = dict()
     document["date"] = parse(extract_c19_report_date(contents)).strftime("%Y-%m-%d")
@@ -90,6 +113,23 @@ def extract_stats(pdf):
         document["negative_flow_rooms_percentage"],
     ) = extract_c19_neg_flow_rooms(contents)
     document["overall_hospital_occupancy_status"] = extract_c19_occupancy(contents)
+
+    return document
+
+    # Contents to File
+    # filename = pdf.split('/')[-1]
+    # filename = filename.replace(".pdf", ".txt")
+    # with open(f"test-data/{filename}", 'w') as f:
+    #         f.write(raw['content'])
+
+
+def extract_case_stats(pdf):
+    logging.info(f"Extracting case stats from {pdf}...")
+    contents = get_contents(pdf)
+
+    document = dict()
+    document["date"] = parse(extract_c19_report_date(contents)).strftime("%Y-%m-%d")
+
     document["positive_patients_all"] = extract_c19_positives(contents)
     document["positive_patients_hospitalized"] = extract_c19_positives_hospitalized(
         contents
@@ -107,12 +147,6 @@ def extract_stats(pdf):
     document["positive_cases_by_lab_other"] = extract_c19_positives_other_labs(contents)
 
     return document
-
-    # Contents to File
-    # filename = pdf.split('/')[-1]
-    # filename = filename.replace(".pdf", ".txt")
-    # with open(f"test-data/{filename}", 'w') as f:
-    #         f.write(raw['content'])
 
 
 def extract_c19_report_date(contents):
