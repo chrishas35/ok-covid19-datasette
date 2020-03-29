@@ -1,0 +1,22 @@
+{
+    "title": "COVID-19 in Oklahoma, using data provided by Oklahoma State Department of Health",
+    "about_url": "https://github.com/chrishas35/ok-covid19-datasette",
+    "databases":{
+        "ok-covid19": {
+            "tables": {
+                "occupancy_stats": {
+                    "sort_desc": "date",
+                    "facets": [],
+                    "source": "Oklahoma State Department of Health",
+                    "source_url": "https://coronavirus.health.ok.gov/executive-order-reports"
+                },
+                "case_stats": {
+                    "sort_desc": "date",
+                    "facets": [],
+                    "source": "Oklahoma State Department of Health",
+                    "source_url": "https://coronavirus.health.ok.gov/executive-order-reports"
+                }
+            }
+        }
+    }
+}
