@@ -10,7 +10,7 @@ class FetchDocumentsSpider(scrapy.Spider):
     # https://stackoverflow.com/questions/12847965/scrapy-parsing-items-that-are-paginated
     start_urls = [
         "https://coronavirus.health.ok.gov/executive-order-reports?page=%s" % page
-        for page in range(0, 2)
+        for page in range(-1, 2)
     ]
 
     def parse(self, response):
