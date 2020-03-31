@@ -6,16 +6,24 @@ class FetchDocumentsSpider(scrapy.Spider):
     name = "fetch_documents"
     allowed_domains = ["coronavirus.health.ok.gov"]
 
-    # TODO: Improve pagination handling
-    # https://stackoverflow.com/questions/12847965/scrapy-parsing-items-that-are-paginated
     start_urls = [
-        "https://coronavirus.health.ok.gov/executive-order-reports?page=%s" % page
-        for page in range(-1, 2)
+        "https://coronavirus.health.ok.gov/executive-order-reports",
     ]
 
     def parse(self, response):
         for href in response.css("h3.field-content a::attr(href)").extract():
+            self.logger.info(f"Found article page {href}")
             yield Request(url=response.urljoin(href), callback=self.parse_article_page)
+
+        next_page_link = None
+        for page_link in response.css("ul.pagination li.arrow a"):
+            if page_link.xpath("@title").extract()[0] == "Go to next page":
+                next_page_link = page_link.xpath("@href").extract()[0]
+                self.logger.info(f"Found pagination for {next_page_link}")
+                yield Request(url=response.urljoin(next_page_link), callback=self.parse)
+
+        if not next_page_link:
+            self.logger.info("No next page link found.")
 
     def parse_article_page(self, response):
         for href in response.css("span.file a::attr(href)").extract():
