@@ -1,4 +1,4 @@
-name: Scheduled fetch of latest Executive Order Reports
+name: "Scheduled: Fetch latest Executive Order Reports"
 on:
   repository_dispatch:
   schedule:
