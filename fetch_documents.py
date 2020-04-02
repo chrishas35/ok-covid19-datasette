@@ -11,9 +11,21 @@ class FetchDocumentsSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for href in response.css("h3.field-content a::attr(href)").extract():
+        do_history = False
+        if getattr(self, "history", None):
+            do_history = True
+
+        if do_history:
+            links = response.css("h3.field-content a::attr(href)").extract()
+        else:
+            links = [response.css("h3.field-content a::attr(href)").extract_first()]
+
+        for href in links:
             self.logger.info(f"Found article page {href}")
             yield Request(url=response.urljoin(href), callback=self.parse_article_page)
+
+        if not do_history:
+            return
 
         next_page_link = None
         for page_link in response.css("ul.pagination li.arrow a"):
