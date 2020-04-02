@@ -1,5 +1,8 @@
 name: Test Extract
-on: [push]
+on:
+  push:
+    paths-ignore:
+    - 'data/**'
 
 jobs:
   Test:
