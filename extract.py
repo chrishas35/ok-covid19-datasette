@@ -321,7 +321,7 @@ def extract_c19_positives_hospitalized(contents):
 def extract_c19_pui_hospital(contents):
     pattern = fr"Persons Under Investigation \nin Hospital: (?P<hospital>{REGEX_INTEGER_WITH_COMMAS})(?:(?: \(|; )?(?P<icu>{REGEX_INTEGER_WITH_COMMAS}) in ICU\)?)?"
     match = re.search(pattern, contents)
-    if match.group("hospital"):
+    if match and match.group("hospital"):
         return int_or_none(match.group("hospital"))
     else:
         return False
@@ -330,7 +330,7 @@ def extract_c19_pui_hospital(contents):
 def extract_c19_pui_icu(contents):
     pattern = fr"Persons Under Investigation \nin Hospital: (?P<hospital>{REGEX_INTEGER_WITH_COMMAS})(?:(?: \(|; )?(?P<icu>{REGEX_INTEGER_WITH_COMMAS}) in ICU\)?)?"
     match = re.search(pattern, contents)
-    if match.group("icu"):
+    if match and match.group("icu"):
         return int_or_none(match.group("icu"))
     else:
         return False
