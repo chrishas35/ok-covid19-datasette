@@ -72,6 +72,13 @@ def get_contents(pdf):
     return _content_cache[pdf]
 
 
+def extract_text_to_file(pdf, filename):
+    contents = get_contents(pdf)
+    filename = pdf.split("/")[-1].replace(".pdf", ".txt")
+    with open(filename, "w") as f:
+        f.write(contents)
+
+
 def extract_occupancy_stats(pdf):
     logging.info(f"Extracting occupancy stats from {pdf}...")
     contents = get_contents(pdf)
@@ -115,12 +122,6 @@ def extract_occupancy_stats(pdf):
     document["overall_hospital_occupancy_status"] = extract_c19_occupancy(contents)
 
     return document
-
-    # Contents to File
-    # filename = pdf.split('/')[-1]
-    # filename = filename.replace(".pdf", ".txt")
-    # with open(f"test-data/{filename}", 'w') as f:
-    #         f.write(raw['content'])
 
 
 def extract_case_stats(pdf):
