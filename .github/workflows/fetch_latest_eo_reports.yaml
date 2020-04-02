@@ -1,6 +1,7 @@
 name: "Scheduled: Fetch latest Executive Order Reports"
 on:
   repository_dispatch:
+    types: [fetch-latest-documents]
   schedule:
     - cron:  '17 */1 * * *'
 

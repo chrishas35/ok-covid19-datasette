@@ -1,6 +1,7 @@
 name: Extract data and deploy site
 on:
   repository_dispatch:
+    types: [deploy-site]
   push:
     branches:
       - 'master'

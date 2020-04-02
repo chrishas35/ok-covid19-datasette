@@ -1,6 +1,7 @@
 name: "Scheduled: Fetch latest news post"
 on:
   repository_dispatch:
+    types: [fetch-latest-news]
   schedule:
     - cron:  '25 */1 * * *'
 
