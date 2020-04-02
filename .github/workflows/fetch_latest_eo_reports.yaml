@@ -40,6 +40,6 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4.1.1
       id: commit
       with:
-        commit_message: Update documents via Github Action
+        commit_message: Update latest documents via Github Action
         # branch: ${{ github.head_ref }}
         file_pattern: "data/pdfs/*.pdf"
