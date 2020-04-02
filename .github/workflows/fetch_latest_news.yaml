@@ -41,4 +41,4 @@ jobs:
       with:
         commit_message: Update documents via Github Action
         # branch: ${{ github.head_ref }}
-        file_pattern: "data/pdfs/*.pdf"
+        file_pattern: "data/html/news/*.html"
