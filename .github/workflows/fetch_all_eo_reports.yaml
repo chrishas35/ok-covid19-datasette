@@ -1,0 +1,44 @@
+name: "Scheduled: Fetch all Executive Order Reports"
+on:
+  repository_dispatch:
+    types: [fetch-all-documents]
+  schedule:
+    - cron:  '25 10 * * *'
+
+jobs:
+  fetch:
+    name: Fetch documents
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT_TOKEN }}
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - uses: dschep/install-poetry-action@v1.3
+      with:
+        create_virtualenvs: true
+    - uses: actions/cache@v1
+      id: cache
+      env:
+        cache-name: cache-virtualenv-v1
+      with:
+        path: ~/.virtualenvs
+        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/poetry.lock') }}
+    - name: Set Poetry config
+      run: |
+        poetry config virtualenvs.in-project false
+        poetry config virtualenvs.path ~/.virtualenvs
+        poetry config --list
+    - name: Install Dependencies
+      run: poetry install
+      if: steps.cache.outputs.cache-hit != 'true'
+    - name: Fetch documents
+      run: poetry run scrapy runspider fetch_documents.py -a history=true
+    - uses: stefanzweifel/git-auto-commit-action@v4.1.1
+      id: commit
+      with:
+        commit_message: Update historical documents via Github Action
+        file_pattern: "data/pdfs/*.pdf"
