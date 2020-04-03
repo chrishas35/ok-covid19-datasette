@@ -3,7 +3,7 @@ on:
   repository_dispatch:
     types: [fetch-latest-documents]
   schedule:
-    - cron:  '17 */1 * * *'
+    - cron:  '02 * * * *'
 
 jobs:
   fetch:
@@ -41,5 +41,4 @@ jobs:
       id: commit
       with:
         commit_message: Update latest documents via Github Action
-        # branch: ${{ github.head_ref }}
         file_pattern: "data/pdfs/*.pdf"

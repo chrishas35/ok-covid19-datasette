@@ -3,7 +3,7 @@ on:
   repository_dispatch:
     types: [fetch-all-news]
   schedule:
-    - cron:  '27 10 * * *'
+    - cron:  '40 10 * * *'
 
 jobs:
   fetch:

@@ -3,7 +3,7 @@ on:
   repository_dispatch:
     types: [fetch-latest-news]
   schedule:
-    - cron:  '25 */1 * * *'
+    - cron:  '17 * * * *'
 
 jobs:
   fetch:
@@ -41,5 +41,5 @@ jobs:
       id: commit
       with:
         commit_message: Update latest news via Github Action
-        # branch: ${{ github.head_ref }}
         file_pattern: "data/html/news/*.html"
+  
