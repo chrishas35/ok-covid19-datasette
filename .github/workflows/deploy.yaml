@@ -44,7 +44,7 @@ jobs:
       run: poetry install
       if: steps.cache.outputs.cache-hit != 'true'
     - name: Extract contents
-      run: poetry run python extract.py
+      run: poetry run python build_database.py
     - name: Setup Cloud Run
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
