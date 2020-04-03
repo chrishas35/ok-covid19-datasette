@@ -10,6 +10,13 @@ class FetchDocumentsSpider(scrapy.Spider):
         "https://coronavirus.health.ok.gov/executive-order-reports",
     ]
 
+    def __init__(self, name=None, page=None, **kwargs):
+        super()
+        if page:
+            self.logger.info("Found single page request")
+            self.start_urls = [page]
+            self.parse = self.parse_article_page
+
     def parse(self, response):
         do_history = False
         if getattr(self, "history", None):
