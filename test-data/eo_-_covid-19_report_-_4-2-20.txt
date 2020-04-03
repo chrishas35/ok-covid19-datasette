@@ -1,0 +1,501 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+State Department of Health
+COVID-19 Report April 2, 2020
+
+Page 1 
+
+Hospital Status
+ICU Beds Available: 346 of 981 (35%)
+
+Medical Surgery Beds Available: 2,572 of 6,203 (41%)
+
+Operating Room Beds Available: 559 of 676 (83%)
+
+Pediatric Beds Available: 342 of 774 (44%)
+
+PICU Beds Available: 24 of 87 (28%)
+
+Ventilators: Available 776 of 1,116 (69.5%)
+
+Negative Flow rooms Available: 462 of 830 (56%)
+Overall hospital  
+
+occupancy status: 3,817 (Hospital census as  
+             of previous midnight)
+
+Average Days of Personal 
+Protective Equipment(PPE): 13.7 
+
+Days of PPE range from 0 to 62. The median stock on hand in days for  
+Oklahoma County and Tulsa County acute hospitals are 4 and 9 respectively.
+
+OSDH PPE on hand
+Total Face Shields: 200,344 
+
+Total Gowns: 112,398 
+Total Coveralls: 38,375
+
+Total Gloves (boxes): 5,347
+Total Masks (N-95): 221,105
+
+Total Surgical Masks: 526,800
+Total Procedure Masks: 383,100
+
+Total Safety Eyewear: 300
+
+OSDH Ventilators on hand
+Total Ventilators: 132
+
+Total Ventilators Circuits: 160
+
+Covid-19 Status: See Page 2
+
+Hospital 
+Reporting 
+
+Compliance
+Bed Survey: 
+
+97%
+Ventilator/PPE 
+
+Survey: 
+93%
+
+
+
+State Department of Health
+COVID-19 Report April 2, 2020
+
+(continued)
+
+Page 2 
+
+Covid-19 Status
+Positive Patients: 
+
+(hospitals, state & private labs)
+879 (34 deceased)
+
+Hospitalized Ever: 257
+
+Currently Hospitalized: 182 (144 in ICU) 
+
+Either reported working in or having 
+direct patient care in a health care or 
+
+long term care setting: 10.4% (91)
+
+ � 5 deceased Long Term Care/Nursing home cases
+
+ � Average age of deceased 71.3
+
+ � 62% of deceased had at least one comorbidity (diabetes,  
+heart disease or circulatory disease, chronic lung disease,  
+liver disease, or renal failure)
+
+ � Average age of hospitalized 64.6
+
+ � Average age of cases not hospitalized 50.6
+
+Persons Under Investigation in Hospital: 313 (137 in ICU)
+
+Persons seen in Hospital (during the  
+24 hr. reporting period),Self-quarantined: 642
+
+COVID-19 Testing*   
+Supplies Availability: 19,903     
+
+Individual Lab Statistics: See Page 3
+
+*number of COVID-19 collection kits available for use at the hospital to collect specimens for testing.
+
+
+
+State Department of Health
+COVID-19 Report April 2, 2020
+
+(continued)
+
+Page 3 
+
+Laboratory
+
+# of Tests 
+(samples) 
+
+that can be 
+processed 
+
+Today
+
+# of Tests 
+(samples) 
+
+Received the 
+Previous Day Turn-around time
+
+OSDH Public Health Lab 589 49 24-48 hours
+
+Diagnostic Laboratory of Oklahoma (DLO) 150 31
+
+Regional Medical Laboratory (RML) 352 318 24-48 hours
+
+Clinical Pathology Laboratories, Inc. 1,500 4,424 48-72 hours
+
+Attis Federal Labs, LLC & dba Wellness Labs 15 0 2-5 days, depending on volume
+
+IMMY Labs 125 18 5 hours
+
+LabCorp 2,500 Not available
+3-4 days, but TAT may 
+vary based on volume 
+
+received
+
+Saint Francis Health System NO RESPONSE TODAY
+NO RESPONSE 
+
+TODAY 8-24 hours
+
+Oklahoma State University Laboratory NO RESPONSE TODAY
+NO RESPONSE 
+
+TODAY
+24 hours from time of 
+receipt from courier
+
+Oklahoma Medicine Laboratory
+0 (still in 
+
+validation 
+process)
+
+10 Validating
+
+Individual Lab Statistics 
+Testing Status as of April 2, 2020 (Midnight to Midnight of Previous Day)
+
+
+
+Page 4 
+
+State Department of Health
+COVID-19 Report April 2, 2020
+
+(continued)
+
+LABORATORY
+MANUFACTURER OF  
+
+TEST KIT/SYSTEM
+
+# OF TEST KITS 
+ON ORDER AND 
+
+MANUFACTURER
+
+# OF REAGENT(S) 
+ON ORDER AND 
+
+MANUFACTURER
+
+# OF EXTRACTION 
+KITS ON 
+
+ORDER AND 
+MANUFACTURER
+
+ADDITIONAL 
+ITEMS ON 
+
+ORDER NEEDED 
+TO COMPLETE 
+
+TESTING
+
+OSDH Public 
+Health Lab
+
+CDC 2019-nCoV Diagnostic Panel 
+(3 analyzers) 
+
+2019-nCOV 
+Real-Time RT-
+
+PCR Diagnostic 
+panel-2
+
+TaqPath 
+1-stepRT-qPCR 
+
+Mastermix, CG-4; 
+nCOVPC 2019-
+nCOV Positive 
+
+Control-1; 
+Human Specimen 
+
+Control-1
+
+QIAamp Viral RNA 
+Mini Kit (RUO)-12/
+
+Qiagen-0
+
+NONE
+
+Diagnostic 
+Laboratory of 
+
+Oklahoma (DLO)
+
+Integrated DNA Technologies 
+QuantStudio DX (1 analyzer) 
+
+NONE NONE NONE NONE
+
+Regional Medical 
+Laboratory (RML)
+
+Abbott Diagnostics M2000 - 2 
+analyzers
+
+Abbott RealTIme 
+SARS-COV-2-
+
+"working with 
+Abbott"; Simplexa 
+COVID 19 Direct-
+
+"working with 
+Abbott"
+
+NONE NONE Abbott m2000 
+pipette tips-
+
+"working with 
+Abbott"
+
+Clinical Pathology 
+Laboratories, Inc.
+
+Roche Diagnostics Cobas 8800 - 1 
+analyzer
+
+NONE NONE NONE NONE
+
+Attis Federal 
+Labs, LLC & dba 
+Wellness Labs
+
+Thermofisher Quantstudio3 (2 
+analyzers) 
+
+NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+IMMY Labs Novel Coronovirus 2019-nCoV PT-
+PCR-ABI 7500 Fast (1 analyzer) 
+
+1 kit/
+Thermofisher
+
+NONE Qiagen QIAAmp 
+Viral RNA-1250; 
+Zymo research 
+
+Viral RNA 
+Extraction-400; 
+Thermofisher 
+Magna-5000
+
+1-Kingfisher 
+Extraction Robot/
+
+Thermofisher; 
+Opentron Liquid 
+
+Handling Robots-2
+
+LabCorp Roche Cobas SARS-CoV-2 NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+NOT REPORTED 
+TODAY
+
+Saint Francis 
+Health System
+
+Abbott M2000 (1 analyzer) NO RESPONSE 
+TODAY
+
+NO RESPONSE 
+TODAY
+
+NO RESPONSE 
+TODAY
+
+NO RESPONSE 
+TODAY
+
+Oklahoma 
+State University 
+
+Laboratory
+
+Fisher Scientific ABI 7500 Fast-3 
+anlayzers;Taqpath COVID-19 
+
+1000rxn
+
+NONE NONE NONE NONE
+
+Oklahoma 
+Medicine 
+
+Laboratory
+
+BioMerieux/ROCHE easyMag/
+Light Cycler; Diasorin 3M 
+Diasorin;ThermoFisher  
+
+KingFisher/7500 DX (1); Cepheid 
+GeneXpert; Biofire  TORCH 
+
+and FilmArray; BD BD Max 1- 
+Performs 22 test at once
+
+Diasorin-500  
+(On Allocation); 
+Cepheid-6  (On 
+Allocation); BD-
+
+84(On Allocation) 
+
+ThermoFisher 
+TaqPath - 5,000
+
+ThermoFisher 
+KingFisher-5,000; 
+BioMerieux-1,000
+
+NONE
+
+Test Kits/Systems
+
+
+
+State Department of Health
+COVID-19 Report April 2, 2020
+
+(continued)
+
+Page 5 
+
+Laboratory
+Total Test 
+
+Administered*
+In 
+
+Queue
+
+Tested 
+Previous 
+
+Day 
+Negative
+
+Tested 
+Previous Day
+
+Positive Negative Positive
+
+OSDH Public Health Lab 1,417 0 17 2 1,265 152
+
+Diagnostic Laboratory of 
+Oklahoma (DLO) 538
+
+23 21 173
+
+Regional Medical Laboratory 
+(RML) 0
+
+0 21 148
+
+Clinical Pathology Laboratories, 
+Inc.
+
+61 55 13 65
+
+Other Labs 103 341
+
+*Test administered only includes samples tested by OSDH or referred by OSDH to partnership labs,  
+does not include unsatisfactory or duplicate samples received but not tested.
+
+Testing Status 
+Testing Status as of Midnight April 2, 2020
+
+
