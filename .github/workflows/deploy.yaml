@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - 'poetry.lock'
+      - 'data/pdfs/**'
+      - 'extract.py'
+      - 'metadata.json'
 
 jobs:
   deploy:
