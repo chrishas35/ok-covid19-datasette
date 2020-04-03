@@ -2,7 +2,7 @@ from glob import glob
 
 import pytest
 
-from extract import *
+from extract_utils import *
 
 files = {}
 for filename in glob("test-data/*.txt"):

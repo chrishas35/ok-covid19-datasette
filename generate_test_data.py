@@ -3,7 +3,7 @@ from glob import glob
 
 import click
 
-from extract import get_contents
+from extract_util import get_contents
 
 
 @click.command()
